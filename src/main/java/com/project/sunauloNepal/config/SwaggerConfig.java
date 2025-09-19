@@ -16,7 +16,7 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI customOpenAPI() {
 	    Server server = new Server();
-	    server.setUrl("https://0a09047aad5a.ngrok-free.app"); // exact ngrok URL
+	    server.setUrl("https://c6f6f33e8c0e.ngrok-free.appp"); // exact ngrok URL
 
 	    return new OpenAPI()
 	            .info(new Info().title("SuanoloNepal API").version("1.0.0").description("API docs for SunauloNepal"))
@@ -27,6 +27,5 @@ public class SwaggerConfig {
 	                                    .scheme("bearer")
 	                                    .bearerFormat("JWT")));
 	}
-
 }
 

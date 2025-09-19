@@ -39,7 +39,7 @@ public class SecurityConfig {
             		.requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .requestMatchers(
                         "/api/auth/**",
-                  
+                  "/api/*",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",
                         "/swagger-ui.html",
@@ -61,7 +61,7 @@ public class SecurityConfig {
         
         config.setAllowedOrigins(List.of(
         	    "http://localhost:5173", 
-        	    "https://0a09047aad5a.ngrok-free.app"
+        	    "https://c6f6f33e8c0e.ngrok-free.app"
         	));
 
 		config.setAllowedHeaders(List.of("*"));
