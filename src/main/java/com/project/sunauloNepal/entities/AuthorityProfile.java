@@ -17,8 +17,9 @@ import java.util.List;
 @Builder
 public class AuthorityProfile {
 
-    @Id
-    private Long id;
+	@Id
+	@Column(name = "user_id")
+	private Long id;
 
     @OneToOne
     @MapsId

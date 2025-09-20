@@ -1,14 +1,13 @@
+# SunauloNepal – Empowering Voices, Driving Change
 
-# Hamro Gunaso – Empowering Voices, Driving Change
+**SunauloNepal** is a robust and scalable platform designed to streamline the end-to-end process of submitting, tracking, and resolving public complaints. Built with modern Java and Spring Boot technologies, it offers a secure, reliable, and efficient backend system for both citizens and administrative bodies.
 
-Hamro Gunaso is an innovative, full-featured platform designed to streamline the process of submitting, tracking, and resolving public complaints. Leveraging modern Java and Spring Boot technologies, it delivers a robust, secure, and scalable solution for both citizens and administrators.
-
-Our mission is to bridge the gap between the public and authorities, ensuring every voice is heard and every issue is addressed transparently. Hamro Gunaso is more than just a backend service—it's a catalyst for social impact, accountability, and digital transformation in governance.
+Our mission is to bridge the gap between the public and governing authorities, ensuring that every voice is heard and every issue is addressed transparently. SunauloNepal is more than a backend service—it's a step toward inclusive governance, accountability, and digital transformation.
 
 ---
 
 ## Table of Contents
-- [Features](#features)
+- [Key Features](#key-features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
@@ -17,89 +16,101 @@ Our mission is to bridge the gap between the public and authorities, ensuring ev
 - [Contributing](#contributing)
 - [License](#license)
 
+---
 
 ## Key Features
-- **Seamless Complaint Submission:** Citizens can easily file complaints with supporting documents and media.
-- **Real-Time Tracking:** Transparent status updates and notifications for every complaint.
-- **KYC & User Verification:** Secure onboarding with document uploads and identity checks.
-- **Role-Based Access:** Distinct dashboards and permissions for users, admins, and authorities.
-- **Data Security:** Robust authentication, validation, and exception handling.
-- **RESTful API:** Clean, well-documented endpoints for easy integration and extension.
 
+SunauloNepal enables seamless complaint submission, allowing citizens to file complaints easily with supporting documents. It offers real-time tracking with transparent status updates and notifications for every complaint. The platform ensures secure onboarding through KYC and user verification processes. Role-based access provides customized dashboards and permissions for users, administrators, and authorities. The system maintains robust data security with strong authentication and exception handling mechanisms. Finally, it exposes a well-documented RESTful API for easy integration and extensibility.
+
+---
 
 ## Project Structure
-```
-├── src/main/java/com/project/hamroGunaso/
-│   ├── HamroGunasoApplication.java
-│   ├── config/           # Configuration & security
-│   ├── controller/       # RESTful API controllers
-│   ├── entities/         # JPA entities & models
-│   ├── ENUM/             # Enum types
-│   ├── exception/        # Custom error handling
-│   ├── repository/       # Data access layer
-│   ├── requestDTO/       # API request DTOs
-│   ├── responseDTO/      # API response DTOs
-│   └── services/         # Business logic & services
-├── src/test/java/com/project/hamroGunaso/ # Unit & integration tests
-├── uploads/              # User-uploaded files (KYC, complaints, etc.)
-├── pom.xml               # Maven build file
-└── README.md             # Project documentation
-```
 
+├── src/main/java/com/project/sunauloNepal/
+│ ├── SunauloNepalApplication.java # Main application entry point
+│ ├── config/ # Configuration & security settings
+│ ├── controller/ # REST API controllers
+│ ├── entities/ # JPA entity models
+│ ├── ENUM/ # Enum declarations
+│ ├── exception/ # Global and custom exception handling
+│ ├── repository/ # Data access layer (JPA Repositories)
+│ ├── requestDTO/ # DTOs for incoming requests
+│ ├── responseDTO/ # DTOs for API responses
+│ └── services/ # Core business logic and services
+├── src/test/java/com/project/sunauloNepal/ # Unit and integration tests
+├── uploads/ # Storage for user-uploaded files
+├── pom.xml # Maven build configuration
+└── README.md # Project documentation
+
+yaml
+Copy code
+
+---
 
 ## Getting Started
 
 ### Prerequisites
+Before you begin, ensure you have the following installed:
 - Java 17 or higher
-- Maven 3.6+
-- MySQL (or compatible RDBMS)
+- Maven 3.6 or newer
+- MySQL (or any compatible relational database)
 
-### Quick Start
+### Quick Start Guide
+
 1. **Clone the repository:**
-   ```sh
+   ```bash
    git clone <repository-url>
-   cd Team-FusionStack-Backend
-   ```
-2. **Configure your database:**
-   - Edit `src/main/resources/application.properties` with your DB credentials.
-3. **Build the project:**
-   ```sh
-   mvn clean install
-   ```
-4. **Run the backend server:**
-   ```sh
-   mvn spring-boot:run
-   ```
-   The API will be available at `http://localhost:8080`.
+   cd sunauloNepal
 
+Set up your database:
 
-## Configuration
-- All configuration files are in `src/main/resources/`.
-- Use environment variables or secrets management for sensitive data.
+Configure database credentials in src/main/resources/application.properties.
 
+Build the project:
 
-## API Documentation
-- All endpoints are defined in the `controller` package.
-- For API exploration and testing, use [Swagger](https://swagger.io/) or [Postman](https://www.postman.com/).
-- (Optional) Integrate Swagger UI for interactive, auto-generated API docs.
+mvn clean install
+Run the application:
 
+mvn spring-boot:run
+The API will be available at: http://localhost:8080
 
-## Testing
-- Unit and integration tests are in `src/test/java/com/project/hamroGunaso/`.
-- To run all tests:
-   ```sh
-   mvn test
-   ```
+Configuration
+All configurations are located in src/main/resources/.
 
+Sensitive data (e.g., DB credentials, JWT secrets) should be managed through environment variables or secure vaults in production environments.
 
-## Contributing
-We welcome contributions from everyone! To contribute:
-1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to your branch (`git push origin feature/your-feature`)
-5. Open a Pull Request with a clear description
+API Documentation
+API endpoints are defined within the controller package.
 
+For API testing and exploration, tools such as Postman or Swagger are recommended.
 
-## License
+ Swagger UI integration is supported for real-time, interactive API documentation.
+
+Testing
+Unit and integration tests are located under src/test/java/com/project/sunauloNepal/.
+
+Run all tests using:
+
+mvn test
+Contributing
+We welcome contributions from the open-source community!
+
+To contribute:
+
+Fork this repository.
+
+Create a new branch:
+
+git checkout -b feature/your-feature-name
+Make your changes and commit:
+
+git commit -m "feat: Add your feature description"
+Push to your fork:
+
+git push origin feature/your-feature-name
+Submit a pull request with a clear description of your changes.
+
+License
 This project is licensed under the MIT License.
+See the LICENSE file for details.
+

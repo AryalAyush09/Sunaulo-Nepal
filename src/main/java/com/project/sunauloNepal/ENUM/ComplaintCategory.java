@@ -6,5 +6,7 @@ public enum ComplaintCategory {
 	    CYBERBUREAU,
 	    WATER,
 	    WASTE,HOSPITAL,
-	    ROAD, FIRE, POLICE
+	    ROAD, FIRE, POLICE,
+	    WARD,
+	    MUNICIPALITY
 }

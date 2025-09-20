@@ -181,8 +181,12 @@ public class ComplaintService {
         AuthorityProfile authority;
 
         if (authorityId != null) {
-            authority = authorityProfileRepository.findById(authorityId)
-                    .orElseThrow(() -> new BadRequestException("Authority not found"));
+        	log.error("Trying to assign complaint to Authority ID: {}", authorityId);
+//            authority = authorityProfileRepository.findById(authorityId)
+//                    .orElseThrow(() -> new BadRequestException("Authority not found"));
+        	authority = authorityProfileRepository.findByUserId(authorityId)
+        	        .orElseThrow(() -> new BadRequestException("Authority not found"));
+
         } else {
             //  WARD complaint → polygon based only
             List<AuthorityProfile> authorities =
@@ -311,7 +315,7 @@ private String processViaWebhook(Complaint complaint) throws Exception {
         Map<String, Object> payload = new HashMap<>();
         payload.put("complaintId", complaint.getId());
         payload.put("userText", complaint.getTranscribedText());   // Nepali text from user
-        payload.put("n8nText", n8nData.getMessage());              // English text from N8N/AI
+        payload.put("n8nText", n8nData != null ? n8nData.getMessage() : "");               // English text from N8N/AI
         payload.put("fullAddress", complaint.getFullAddress());    // user address
         payload.put("userPhone", complaint.getUser().getPhoneNumber());
         payload.put("proof", complaint.getMediaPaths());

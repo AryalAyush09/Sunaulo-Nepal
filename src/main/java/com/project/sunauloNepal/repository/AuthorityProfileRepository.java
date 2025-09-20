@@ -26,4 +26,6 @@ public interface AuthorityProfileRepository extends JpaRepository<AuthorityProfi
     List<AuthorityProfile> findAllByAuthorityType(AuthorityType type);
 
 	long countByUser_IdentityStatus(IdentityStatus status);
+	Optional<AuthorityProfile> findByUserId(Long userId);
+
 }
