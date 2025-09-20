@@ -39,7 +39,6 @@ public class SecurityConfig {
             		.requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .requestMatchers(
                         "/api/auth/**",
-                  "/api/*",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",
                         "/swagger-ui.html",
@@ -61,7 +60,7 @@ public class SecurityConfig {
         
         config.setAllowedOrigins(List.of(
         	    "http://localhost:5173", 
-        	    "https://c6f6f33e8c0e.ngrok-free.app"
+        	    "https://8fdd7b5a1939.ngrok-free.app"
         	));
 
 		config.setAllowedHeaders(List.of("*"));
@@ -70,7 +69,7 @@ public class SecurityConfig {
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 //        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "Origin"));
 //        config.setExposedHeaders(List.of("Authorization")); // Optional, only if you want to access Authorization header in frontend
-//        config.setAllowCredentials(true);
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

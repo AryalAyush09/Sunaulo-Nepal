@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Builder
 
 public class UserKYCRequestDTO {
-	private String citizenshipNumber;
+//	private String citizenshipNumber;
 	private String phonenumber;
     private MultipartFile frontImage;
     private MultipartFile backImage;

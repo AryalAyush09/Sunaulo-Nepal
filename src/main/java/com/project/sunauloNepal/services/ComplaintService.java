@@ -337,13 +337,14 @@ private String processViaWebhook(Complaint complaint) throws Exception {
         }
 
         //  SMS via Sparrow
-        if (authority.getPhoneNumber() != null) {
-            String smsMessage = "New complaint assigned in your area. "
-                              + "Category: " + complaint.getCategory().name() + ". "
-                              + "Check the SunauloNepal for details.";
-            log.info("Sending SMS to {}: {}", authority.getPhoneNumber(), smsMessage);
-            smsService.sendSms(authority.getPhoneNumber(), smsMessage);
-        }
+//        if (authority.getPhoneNumber() != null) {
+//            String smsMessage = "New complaint assigned in your area. "
+//                              + "Category: " + complaint.getCategory().name() + ". "
+//                              + "Check the SunauloNepal for details.";
+//            log.info("Sending SMS to {}: {}", authority.getPhoneNumber(), smsMessage);
+//            smsService.sendSms(authority.getPhoneNumber(), smsMessage);
+//        }
+        
      // WhatsApp via Twilio (using same phone number field)
         if (authority.getPhoneNumber() != null) {
             String toWhatsapp = "whatsapp:" + authority.getPhoneNumber(); // e.g., whatsapp:+9779812345678

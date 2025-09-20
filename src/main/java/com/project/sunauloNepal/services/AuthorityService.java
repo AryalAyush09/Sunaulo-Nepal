@@ -19,6 +19,7 @@ import com.project.sunauloNepal.repository.UserRepository;
 import com.project.sunauloNepal.requestDTO.AuthorityRegisterRequestDto;
 import com.project.sunauloNepal.responseDTO.ApiResponse;
 import com.project.sunauloNepal.responseDTO.AuthorityProfileResponseDto;
+import com.project.sunauloNepal.util.PhoneUtil;
 
 @Service
 @RequiredArgsConstructor
@@ -65,7 +66,8 @@ public class AuthorityService {
                 .latitude(dto.getLatitude())          // pass lat from DTO
                 .longitude(dto.getLongitude())        // pass long from DTO
                 .fullAddress(dto.getFullAddress())
-                .phoneNumber(dto.getPhoneNumber())
+//                .phoneNumber(dto.getPhoneNumber())
+                .phoneNumber(PhoneUtil.formatToE164(dto.getPhoneNumber()))
                 .fullName(dto.getFullName())
                 .build();
 
@@ -82,7 +84,7 @@ public class AuthorityService {
 	                .id(profile.getId())
 	                .authorityFullName(user.getFullName())
 	                .email(user.getEmail())
-	                .phoneNumber(user.getPhoneNumber())
+	                .phoneNumber(PhoneUtil.formatToE164(profile.getPhoneNumber()))
 	                .authorityType(profile.getAuthorityType().name())
 	                .fullAddress(profile.getFullAddress())
 	                .latitude(profile.getLatitude())
