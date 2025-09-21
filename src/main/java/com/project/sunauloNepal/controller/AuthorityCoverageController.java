@@ -3,6 +3,7 @@ package com.project.sunauloNepal.controller;
 import com.project.sunauloNepal.entities.AuthorityCoveragePolygon;
 import com.project.sunauloNepal.requestDTO.CoveragePolygonRequest;
 import com.project.sunauloNepal.responseDTO.ApiResponse;
+import com.project.sunauloNepal.responseDTO.CoveragePolygonResponse;
 import com.project.sunauloNepal.services.AuthorityCoverageService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,8 +27,10 @@ public class AuthorityCoverageController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<?>> addCoverage(@RequestBody CoveragePolygonRequest req) {
         AuthorityCoveragePolygon saved = coverageService.addCoveragePolygon(req);
+        CoveragePolygonResponse response = coverageService.mapToDto(saved); // ✅
+
         return ResponseEntity.ok(
-                new ApiResponse<>(true, "Coverage polygon created successfully", saved)
+                new ApiResponse<>(true, "Coverage polygon created successfully", response)
         );
     }
 

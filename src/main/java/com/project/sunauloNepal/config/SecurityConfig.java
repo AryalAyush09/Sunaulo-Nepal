@@ -60,7 +60,7 @@ public class SecurityConfig {
         
         config.setAllowedOrigins(List.of(
         	    "http://localhost:5173", 
-        	    "https://8fdd7b5a1939.ngrok-free.app"
+        	    "https://ff3e3921af1a.ngrok-free.app"
         	));
 
 		config.setAllowedHeaders(List.of("*"));

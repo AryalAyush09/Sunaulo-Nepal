@@ -16,7 +16,6 @@ public class TwilioConfig {
 	@Value("${twilio.auth.token}")
 	private String authToken;
 
-
     @PostConstruct
     public void init() {
         Twilio.init(accountSid, authToken);

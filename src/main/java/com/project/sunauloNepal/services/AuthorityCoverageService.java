@@ -6,6 +6,7 @@ import com.project.sunauloNepal.exception.BadRequestException;
 import com.project.sunauloNepal.repository.AuthorityCoveragePolygonRepository;
 import com.project.sunauloNepal.repository.AuthorityProfileRepository;
 import com.project.sunauloNepal.requestDTO.CoveragePolygonRequest;
+import com.project.sunauloNepal.responseDTO.CoveragePolygonResponse;
 
 import lombok.RequiredArgsConstructor;
 import org.locationtech.jts.geom.*;
@@ -13,7 +14,9 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,9 +48,21 @@ public class AuthorityCoverageService {
         return coverageRepo.save(entity);
     }
 
-//    
+    public CoveragePolygonResponse mapToDto(AuthorityCoveragePolygon entity) {
+        Coordinate[] coords = entity.getArea().getCoordinates();
+        List<double[]> coordList = Arrays.stream(coords)
+            .map(c -> new double[]{c.y, c.x}) // convert (lon, lat) to (lat, lon) if needed
+            .collect(Collectors.toList());
+
+        return CoveragePolygonResponse.builder()
+            .id(entity.getId())
+            .authorityId(entity.getAuthorityProfile().getId())
+            .coordinates(coordList)
+            .build();
+    }
+    
 //      List all polygons for a given authority
-//     
+     
     public List<AuthorityCoveragePolygon> listCoveragePolygons(Long authorityId) {
         return coverageRepo.findByAuthorityProfile_Id(authorityId);
     }
