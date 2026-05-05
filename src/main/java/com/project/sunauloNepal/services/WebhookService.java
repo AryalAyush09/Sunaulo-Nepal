@@ -18,7 +18,7 @@ public class WebhookService {
 
     // n8n webhook URL (can move to application.properties)
     private static final String WEBHOOK_URL = 
-    "https://pradip69.app.n8n.cloud/webhook/2e96294e-763b-4e0a-90fb-b7d024c26f68";
+    "https://n8nhackthone.app.n8n.cloud/webhook-test/2e96294e-763b-4e0a-90fb-b7d024c26f68";
 
     public ApiResponse<String> sendComplaintWebhook(WebhookPayload payload) {
         try {

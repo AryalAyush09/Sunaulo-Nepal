@@ -348,7 +348,7 @@ private String processViaWebhook(Complaint complaint) throws Exception {
 //            log.info("Sending SMS to {}: {}", authority.getPhoneNumber(), smsMessage);
 //            smsService.sendSms(authority.getPhoneNumber(), smsMessage);
 //        }
-        
+        System.out.println("PAYLOAD: " + payload);
      // WhatsApp via Twilio (using same phone number field)
         if (authority.getPhoneNumber() != null) {
             String toWhatsapp = "whatsapp:" + authority.getPhoneNumber(); // e.g., whatsapp:+9779812345678
@@ -360,7 +360,7 @@ private String processViaWebhook(Complaint complaint) throws Exception {
                     + "Check the SunauloNepal system for full details.";
             try {
             	whatsAppService.sendWhatsAppMessage(toWhatsapp, whatsappMsg);
-           
+               
                 log.info("WhatsApp message sent to authority {}", authority.getId());
             } catch (Exception e) {
                 log.error("Error sending WhatsApp to authority {}: {}", authority.getId(), e.getMessage(), e);
